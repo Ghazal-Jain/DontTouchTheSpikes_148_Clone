@@ -8,6 +8,7 @@ namespace Main_Game.Scripts
         private bool _rightDir = true;
         [SerializeField] private int score = 0;
         [SerializeField] private float speed = 3.0f;
+        [SerializeField] private float jumpFactor = 5.0f;
         void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -36,7 +37,7 @@ namespace Main_Game.Scripts
         {
             if (Input.GetButtonDown("Jump"))
             {
-                _rigidbody.velocity = new Vector2(0, 5);
+                _rigidbody.velocity = new Vector2(0, jumpFactor);
             }
         }
 
