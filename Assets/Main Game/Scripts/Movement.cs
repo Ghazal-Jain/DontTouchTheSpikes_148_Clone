@@ -12,6 +12,7 @@ namespace Main_Game.Scripts
         [SerializeField] private float jumpFactor = 5.0f;
 
         public TextMeshProUGUI scoreDisplay;
+        public SpikeController spikes;
         void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -49,11 +50,15 @@ namespace Main_Game.Scripts
         {
             if (_rightDir)
             {
+                spikes.HideRightSpikes();
                 _rightDir = false;
+                spikes.GenerateSpike(Spike.Left,1);
             }
             else if (!_rightDir)
             {
+                spikes.HideLeftSpikes();
                 _rightDir = true;
+                spikes.GenerateSpike(Spike.Right,1);
             }
 
             score++;
