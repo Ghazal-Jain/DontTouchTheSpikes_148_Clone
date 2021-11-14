@@ -1,18 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpikeController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<GameObject> leftSpikes;
+    public List<GameObject> rightSpikes;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        foreach (var leftSpike in leftSpikes)
+        {
+            leftSpike.SetActive(false);
+        }
+        foreach (var rightSpike in rightSpikes)
+        {
+            rightSpike.SetActive(false);
+        }
     }
 }

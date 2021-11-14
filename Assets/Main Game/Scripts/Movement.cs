@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Main_Game.Scripts
@@ -9,6 +10,8 @@ namespace Main_Game.Scripts
         [SerializeField] private int score = 0;
         [SerializeField] private float speed = 3.0f;
         [SerializeField] private float jumpFactor = 5.0f;
+
+        public TextMeshProUGUI scoreDisplay;
         void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -19,6 +22,7 @@ namespace Main_Game.Scripts
         {
             CheckInput();
             CheckDirection();
+            scoreDisplay.SetText( score.ToString());
         }
 
         private void CheckDirection()
